@@ -20,9 +20,10 @@
             <p><input type="text" id="today" disabled></p>
 
             <p class="title"><span id="txtBirthday"></span>:</p>
-            <p><input type="datetime-local" id="birthday"></p>
-
-            <!-- <p id="button" onclick="">See Age</p>   -->  
+            <p>
+                <input type="text" placeholder="dd/mm/yyyy" id="birthdate" oninput="mask(this, 'date')">
+                <input type="text" placeholder="hh:mm" id="birthtime" value="00:00" oninput="mask(this, 'time')">
+            </p> 
         </div>
         <div class="block">
             <p class="time" id="years"></p>

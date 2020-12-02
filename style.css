@@ -36,6 +36,14 @@
     width: 67vmin;
     font-family: monospace;
 }
+#birthdate {
+    width: 42vmin;
+}
+
+#birthtime {
+    width: 22vmin;
+}
+
 .button { 
     font-size: 5vmin;
     padding: 2vmin;

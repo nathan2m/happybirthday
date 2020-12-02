@@ -67,7 +67,7 @@ const setLanguage = (l) => {
     ID("titleHead").innerHTML = lang[lg].th;
     ID("txtToday").innerHTML = lang[lg].tdy;
     ID("txtBirthday").innerHTML = lang[lg].ybdy;
-    getAge('birthday');
+    getAge();
 }
 
 const secMinute = 60;
@@ -131,8 +131,37 @@ const checkIfHasWeekBirthday = (b, t) => {
     return hasWeekBirthday;
 }
 
-const getAge = id => {
-    const birthday = new Date(ID(id).value);
+const mask = (i, t) => {
+    const v = i.value;
+
+    if (isNaN(v[v.length - 1])) {
+        i.value = v.substring(0, v.length - 1);
+        return;
+    }
+
+    if (t == "date") {
+        i.setAttribute("maxlength", "10");
+        if (v.length === 2 || v.length === 5) i.value += "/";
+    }
+
+    if (t == "time") {
+        i.setAttribute("maxlength", "5");
+        if (v.length === 2) i.value += ":";
+    }
+}
+
+const getAge = () => {
+    let birthday = new Date();
+    const Bdate = ID('birthdate').value; const Btime = ID('birthtime').value;
+    if (Bdate.length === 10 && Btime.length === 5 && (Bdate[2] === "/" && Bdate[5] === "/" && Btime[2] === ":")) {
+        const date = Bdate.split("/"); const time = Btime.split(":");
+        const day = parseInt(date[0]); const month = parseInt(date[1]); const year = parseInt(date[2]);
+        const hour = parseInt(time[0]); const minute = parseInt(time[1]);
+        const tDate = new Date(year, month-1, day, hour, minute);
+        if (tDate.getDate() === day && tDate.getMonth() === (month-1) && tDate.getHours() === hour && tDate.getMinutes() === minute && tDate.getFullYear() === year) {
+            birthday = tDate;
+        }
+    }
     const today = new Date(); ID('today').value = today.toLocaleString();
     const hasBirthday = checkIfHasBirthday(birthday, today);
     const hasMonthBirthday = checkIfHasMonthBirthday(birthday, today);
@@ -145,7 +174,7 @@ const getAge = id => {
     ID('hours').innerHTML = (ageSecs >= 0 ? getFormatHours(ageSecs) : 0 + " " + lang[lg].hs);
     ID('minutes').innerHTML = (ageSecs >= 0 ? getFormatMinutes(ageSecs) : 0 + " " + lang[lg].mns);
     ID('seconds').innerHTML = (ageSecs >= 0 ? ageSecs.toLocaleString() : 0) + " " + (ageSecs === 1 ? lang[lg].sc : lang[lg].scs);
-    setTimeout("getAge('" + id + "')", 1000);
+    setTimeout("getAge()", 1000);
 }
 
 const getYears = (as, b, t, hb) => {
