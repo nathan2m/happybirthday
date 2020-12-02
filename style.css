@@ -1,0 +1,65 @@
+:root {
+    --txt: #bbb;
+    --bkg: #111;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bkg);
+    color: var(--txt);
+    font-family: 'Source Sans Pro', sans-serif;
+    user-select:none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.age {
+    width: 100vw;
+    margin-top: 15vh;
+    text-align: left;
+    cursor: default;
+    font-weight: bold;
+}
+
+.age .title {
+    font-size: 10vmin;
+    padding: 5vmin 0 0 0;
+}
+.age input {
+    font-size: 5vmin;
+    padding: 10px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border: 0.4vmin solid var(--txt);
+    width: 67vmin;
+    font-family: monospace;
+}
+.button { 
+    font-size: 5vmin;
+    padding: 2vmin;
+    margin: 2.5vmin;
+    width: 30vmin;
+    border-radius: 10px;
+    border: 0.4vmin solid var(--txt);
+    cursor: pointer;
+}
+
+.age .time {
+    font-size: 6vmin;
+    margin: 10px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.block {
+    margin: 20px;
+    text-align: left;
+    /* border: 1px solid var(--txt); */
+    /* width: 70vmin; */
+}

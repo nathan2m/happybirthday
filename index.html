@@ -1,1 +1,38 @@
-<h1>Hello world!</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nathan Manera Magalhães">
+    <title id="titleHead"></title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="setLanguage('pt-BR')">
+    <div style="text-align: center; margin-top: 5vmin;">
+        <span title="Set language to English" class="button" onclick="setLanguage('en-US')">English</span>
+        <span title="Définir la langue en Français" class="button" onclick="setLanguage('fr-FR')">Français</span>
+        <span title="Mudar idioma para Português" class="button" onclick="setLanguage('pt-BR')">Português</span>
+    </div>
+    <div class="age container">
+        <div class="block">
+            <p class="title" style="padding: 0;"><span id="txtToday"></span>:</p>
+            <p><input type="text" id="today" disabled></p>
+
+            <p class="title"><span id="txtBirthday"></span>:</p>
+            <p><input type="datetime-local" id="birthday"></p>
+
+            <!-- <p id="button" onclick="">See Age</p>   -->  
+        </div>
+        <div class="block">
+            <p class="time" id="years"></p>
+            <p class="time" id="months"></p>
+            <p class="time" id="weeks"></p>
+            <p class="time" id="days"></p>
+            <p class="time" id="hours"></p>
+            <p class="time" id="minutes"></p>
+            <p class="time" id="seconds"></p>    
+        </div>
+    </div>
+</body>
+</html>
